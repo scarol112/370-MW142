@@ -1,10 +1,15 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks
-	scarol:1.1; strict;
+	scarol:1.2; strict;
 comment	@# @;
 
+
+1.2
+date	2026.01.18.13.04.06;	author scarol;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2025.10.22.13.28.34;	author scarol;	state Exp;
@@ -16,12 +21,28 @@ desc
 @@
 
 
+1.2
+log
+@*** empty log message ***
+@
+text
+@# MW14x
+
+Repo started as MW1.42 in q VM on XPS.
+
+20260110 1.42abandoned in favor of a Docker container with MW1.45.
+
+@
+
+
 1.1
 log
 @Initial revision
 @
 text
-@# MW142
-
+@d1 5
+a5 1
+# MW142
+a6 1
 Mediawiki v1.42 for new SCwiki
 @

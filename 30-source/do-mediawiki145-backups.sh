@@ -37,6 +37,8 @@ sudo docker exec mediawiki php /var/www/html/maintenance/run.php dumpBackup --fu
 echo
 echo "Copying Mediawiki config files from container . . ."
 sudo docker cp mediawiki:/var/www/html/LocalSettings.php "${BACKUPLOC}LocalSettings-$time.php"
+sudo docker cp mediawiki:/var/www/html/images "${BACKUPLOC}images-$time"
+sudo docker cp mediawiki:/var/www/html/extensions "${BACKUPLOC}extensions-$time"
 
 echo
 echo "creating tarfile $tarfile in host filesystem ... "

@@ -1,10 +1,15 @@
-head	1.2;
+head	1.3;
 access;
 symbols;
 locks
-	scarol:1.2; strict;
+	scarol:1.3; strict;
 comment	@# @;
 
+
+1.3
+date	2026.03.15.19.00.32;	author scarol;	state Exp;
+branches;
+next	1.2;
 
 1.2
 date	2026.02.23.00.18.44;	author scarol;	state Exp;
@@ -21,9 +26,9 @@ desc
 @@
 
 
-1.2
+1.3
 log
-@first real version
+@added backups of images and extensions
 @
 text
 @#!/bin/bash
@@ -65,6 +70,8 @@ sudo docker exec mediawiki php /var/www/html/maintenance/run.php dumpBackup --fu
 echo
 echo "Copying Mediawiki config files from container . . ."
 sudo docker cp mediawiki:/var/www/html/LocalSettings.php "${BACKUPLOC}LocalSettings-$time.php"
+sudo docker cp mediawiki:/var/www/html/images "${BACKUPLOC}images-$time"
+sudo docker cp mediawiki:/var/www/html/extensions "${BACKUPLOC}extensions-$time"
 
 echo
 echo "creating tarfile $tarfile in host filesystem ... "
@@ -78,6 +85,15 @@ scp "$tarfile" sshd@@192.168.1.157:/shares/Public/backups/
 
 echo
 echo "...done."
+@
+
+
+1.2
+log
+@first real version
+@
+text
+@d40 2
 @
 
 
